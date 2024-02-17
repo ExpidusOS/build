@@ -65,7 +65,6 @@ fn make(step: *std.Build.Step, _: *std.Progress.Node) anyerror!void {
         "-o",
         b.fmt("{s}.{s}", .{ name, sourceExt }),
         "-H",
-        b.fmt("{s}.{s}", .{ name, headerExt }),
         "-Wno-yacc",
     }, try b.cache_root.join(b.allocator, &.{ "o", &digest }));
 
