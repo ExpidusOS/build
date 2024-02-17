@@ -59,6 +59,7 @@ fn make(step: *std.Build.Step, _: *std.Progress.Node) anyerror!void {
         cmd,
         self.source.getPath2(b, step),
         "-o", b.fmt("{s}.c", .{name}),
+        "-Wno-yacc",
     }, try b.cache_root.join(b.allocator, &.{ "o", &digest }));
 
     self.output_source.path = try b.cache_root.join(b.allocator, &.{ "o", &digest, b.fmt("{s}.c", .{name}) });
