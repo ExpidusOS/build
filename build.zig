@@ -3,20 +3,6 @@ const std = @import("std");
 pub const LexStep = @import("LexStep.zig");
 pub const YaccStep = @import("YaccStep.zig");
 
-pub const Variant = enum {
-    core,
-    devkit,
-    mainline,
-
-    pub fn name(self: Variant) []const u8 {
-        return switch (self) {
-            .core => "Core",
-            .devkit => "DevKit",
-            .mainline => "Mainline",
-        };
-    }
-};
-
 pub fn runAllowFailSingleLine(b: *std.Build, argv: []const []const u8) ?[]const u8 {
     var c: u8 = 0;
     if (b.runAllowFail(argv, &c, .Ignore) catch null) |result| {
